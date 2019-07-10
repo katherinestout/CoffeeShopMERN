@@ -22,15 +22,15 @@ class Coffee extends Component {
 
     render() {
 
-        const coffeeItems = this.state.coffees.map(coffeetype => (
-            <div key = {coffeetype.id}>
-                <h3>{coffeetype.coffeetype}</h3>
+        const coffeeItems = this.state.coffees.map(coffee => (
+            <div key = {coffee.id}>
+                <h3>{coffee.coffeetype}</h3>
 
             </div>
         ) )
         return (
             <div>
-                <h2>Coffee Types:</h2>
+                <h2>Coffee Types</h2>
 
                 {coffeeItems}
                 

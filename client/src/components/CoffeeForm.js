@@ -2,15 +2,24 @@ import React, { Component } from 'react';
 const axios = require('axios');
 
 class CoffeeForm extends Component {
+
     constructor(props){
         super(props);
         this.state = {
-            type: ""
+            coffeetype: ""
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onChange.bind(this);
     }
 
+    addCoffee = () => {
+        const {coffeetype} = this.state;
+        axios.post('http://localhost:5000/coffees/post', 
+        {coffeetype}).then(data => console.log(data))
+       .catch(err => console.log(err));
+          // this.props.createCup(cup);
+
+    }
    
 
     onChange(e){
@@ -19,15 +28,7 @@ class CoffeeForm extends Component {
 
     onSubmit(e){
         e.preventDefault();
-        const coffeetype = {
-            type: this.state.type
-        };
-   
-        axios.post('http://localhost:5000/coffees/post', {
-         coffeetype
-       }).then(data => console.log(data))
-       .catch(err => console.log(err));
-          // this.props.createCup(cup);
+        this.addCoffee();
     }
   
     render() { 
@@ -40,9 +41,9 @@ class CoffeeForm extends Component {
 
                     <input
                     type="text"
+                    name="coffeetype"
                     onChange={this.onChange}
-                    name="type"
-                    value={this.state.type}/>
+                    value={this.state.coffeetype}/>
 
                     <button type="submit">
                         Submit

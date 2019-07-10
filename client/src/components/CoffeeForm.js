@@ -9,17 +9,10 @@ class CoffeeForm extends Component {
             coffeetype: ""
         };
         this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    addCoffee = () => {
-        const {coffeetype} = this.state;
-        axios.post('http://localhost:5000/coffees/post', 
-        {coffeetype}).then(data => console.log(data))
-       .catch(err => console.log(err));
-          // this.props.createCup(cup);
-
-    }
+  
    
 
     onChange(e){
@@ -28,7 +21,13 @@ class CoffeeForm extends Component {
 
     onSubmit(e){
         e.preventDefault();
-        this.addCoffee();
+        const coffee = {coffeetype: this.state.coffeetype};
+
+        axios.post('http://localhost:5000/coffees/post', 
+        coffee).then(data => console.log(data))
+       .catch(err => console.log(err));
+          // this.props.createCup(cup);
+
     }
   
     render() { 

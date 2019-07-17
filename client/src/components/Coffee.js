@@ -21,7 +21,7 @@ class Coffee extends Component {
 
     render() {
 
-        const coffeeItems = this.props.coffees.map(coffee => (
+const coffeeItems = this.props.coffees.map(coffee => (
             <div key = {coffee._id}>
                 <h3>{coffee.coffeetype}</h3>
             </div>
@@ -38,7 +38,7 @@ class Coffee extends Component {
 }
 
 Coffee.propTypes = {
-    fetchPosts: PropTypes.func.isRequired,
+ fetchPosts: PropTypes.func.isRequired,
   coffees: PropTypes.array.isRequired,
   newPost: PropTypes.object
 };

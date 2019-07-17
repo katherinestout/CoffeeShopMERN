@@ -5,8 +5,8 @@ import axios from 'axios';
 
   export const fetchPosts = () => dispatch => {
     axios.get('http://localhost:5000/coffees/all')
-   // .then(response => this.setState({coffees: response.data}))
-
+    //.then(response => ({coffees: response.data}))
+    .then(response => (response.data))
    .then(coffees =>
         dispatch({
           type: FETCH_POSTS,

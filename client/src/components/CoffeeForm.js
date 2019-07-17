@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {createPost} from '../actions/postActions';
+
 const axios = require('axios');
+
+
+
+
 
 class CoffeeForm extends Component {
 
@@ -27,7 +35,6 @@ class CoffeeForm extends Component {
         coffee).then(data => console.log(data))
        .catch(err => console.log(err));
           // this.props.createCup(cup);
-
     }
   
     render() { 
@@ -54,4 +61,8 @@ class CoffeeForm extends Component {
     }
 }
 
-export default CoffeeForm;
+CoffeeForm.propTypes = {
+    createPost: PropTypes.func.isRequired
+};
+
+export default connect(null, {createPost})(CoffeeForm);

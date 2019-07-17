@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
+import {connect} from 'react-redux';
+import {fetchPosts} from './../actions/postActions';
+import PropTypes from 'prop-types';
 
 class Coffee extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            coffees: []
-        }
-    }
 
-    getCups = () => {
-        axios.get('http://localhost:5000/coffees/all')
-        .then(response => this.setState({coffees: response.data}))
-        .catch(err => console.log(err));
-    }
+  
 
-    componentDidMount(){
-    this.getCups();
+    componentWillMount(){
+        this.props.fetchPosts();
     }
+/*
+      componentWillReceiveProps(nextProps) {
+    if (nextProps.newPost) {
+      this.props.posts.unshift(nextProps.newPost);
+    }
+  }*/
 
 
     render() {
 
-        const coffeeItems = this.state.coffees.map(coffee => (
-            <div key = {coffee.id}>
+        const coffeeItems = this.props.coffees.map(coffee => (
+            <div key = {coffee._id}>
                 <h3>{coffee.coffeetype}</h3>
-
             </div>
         ) )
         return (
@@ -38,4 +36,18 @@ class Coffee extends Component {
         )
     }
 }
-export default Coffee;
+
+Coffee.propTypes = {
+    fetchPosts: PropTypes.func.isRequired,
+  coffees: PropTypes.array.isRequired,
+  newPost: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+    coffees: state.coffees.cups,
+    newPost: state.coffees.cup
+  });
+
+
+
+export default connect(mapStateToProps, {fetchPosts})(Coffee);

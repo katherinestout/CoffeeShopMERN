@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST } from '../actions/types';
+import { FETCH_COFFEE, NEW_COFFEE } from '../actions/types';
 
 const initialState = {
   cups: [],
@@ -7,12 +7,12 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case FETCH_POSTS:
+    case FETCH_COFFEE:
       return {
         ...state,
         cups: action.payload
       };
-    case NEW_POST:
+    case NEW_COFFEE:
       return {
         ...state,
         cup: action.payload

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import axios from 'axios';
 import {connect} from 'react-redux';
-import {fetchPosts} from './../actions/postActions';
+import {fetchCoffee} from './../actions/coffeeActions';
 import PropTypes from 'prop-types';
 
 class Coffee extends Component {
@@ -9,7 +9,7 @@ class Coffee extends Component {
   
 
     componentWillMount(){
-        this.props.fetchPosts();
+        this.props.fetchCoffee();
     }
 /*
       componentWillReceiveProps(nextProps) {
@@ -38,16 +38,16 @@ const coffeeItems = this.props.coffees.map(coffee => (
 }
 
 Coffee.propTypes = {
- fetchPosts: PropTypes.func.isRequired,
+ fetchCoffee: PropTypes.func.isRequired,
   coffees: PropTypes.array.isRequired,
-  newPost: PropTypes.object
+  newCoffee: PropTypes.object
 };
 
 const mapStateToProps = state => ({
     coffees: state.coffees.cups,
-    newPost: state.coffees.cup
+    newCoffee: state.coffees.cup
   });
 
 
 
-export default connect(mapStateToProps, {fetchPosts})(Coffee);
+export default connect(mapStateToProps, {fetchCoffee})(Coffee);

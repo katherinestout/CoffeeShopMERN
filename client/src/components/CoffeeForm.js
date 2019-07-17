@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {createPost} from '../actions/postActions';
+import {createCoffee} from '../actions/coffeeActions';
 
 const axios = require('axios');
-
-
 
 
 
@@ -62,7 +60,7 @@ class CoffeeForm extends Component {
 }
 
 CoffeeForm.propTypes = {
-    createPost: PropTypes.func.isRequired
+    createCoffee: PropTypes.func.isRequired
 };
 
-export default connect(null, {createPost})(CoffeeForm);
+export default connect(null, {createCoffee})(CoffeeForm);

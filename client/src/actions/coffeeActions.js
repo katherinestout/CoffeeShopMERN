@@ -1,20 +1,20 @@
-import { FETCH_POSTS, NEW_POST} from './types';
+import { FETCH_COFFEE, NEW_COFFEE} from './types';
 import axios from 'axios';
 
 
 
-  export const fetchPosts = () => dispatch => {
+  export const fetchCoffee = () => dispatch => {
     axios.get('http://localhost:5000/coffees/all')
     //.then(response => ({coffees: response.data}))
     .then(response => (response.data))
    .then(coffees =>
         dispatch({
-          type: FETCH_POSTS,
+          type: FETCH_COFFEE,
           payload: coffees
         })
       );
   };
   
-  export const createPost = postData => dispatch => {
+  export const createCoffee = postData => dispatch => {
    
   };

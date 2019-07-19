@@ -15,6 +15,17 @@ import axios from 'axios';
       );
   };
   
-  export const createCoffee = postData => dispatch => {
+  export const createCoffee = (coffee) => dispatch => {
+    
+    axios.post('http://localhost:5000/coffees/post', 
+    coffee).then(data => console.log(data))
+    .then(coffee => 
+      dispatch({
+        type: NEW_COFFEE,
+        payload: coffee
+      })
+      );
+  
+      // this.props.createCup(cup);
    
   };

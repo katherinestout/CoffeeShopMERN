@@ -11,12 +11,12 @@ class Coffee extends Component {
     componentWillMount(){
         this.props.fetchCoffee();
     }
-/*
+
       componentWillReceiveProps(nextProps) {
     if (nextProps.newPost) {
       this.props.posts.unshift(nextProps.newPost);
     }
-  }*/
+  }
 
 
     render() {

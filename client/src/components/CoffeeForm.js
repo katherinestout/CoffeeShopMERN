@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {createCoffee} from '../actions/coffeeActions';
 
-const axios = require('axios');
+//const axios = require('axios');
 
 
 
@@ -29,10 +29,7 @@ class CoffeeForm extends Component {
         e.preventDefault();
         const coffee = {coffeetype: this.state.coffeetype};
 
-        axios.post('http://localhost:5000/coffees/post', 
-        coffee).then(data => console.log(data))
-       .catch(err => console.log(err));
-          // this.props.createCup(cup);
+      this.props.createCoffee(coffee);
     }
   
     render() { 
